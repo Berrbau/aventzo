@@ -316,23 +316,26 @@
   .waitlist p{ color:var(--muted); max-width:480px; margin:0 auto 40px; }
   form.wl{
     display:flex;
+    flex-direction:column;
+    gap:12px;
     max-width:440px;
     margin:0 auto;
     border:1px solid var(--hairline);
-    border-radius:100px;
-    padding:6px;
+    border-radius:24px;
+    padding:20px;
     background:var(--bg-panel);
   }
   form.wl input{
-    flex:1;
-    background:transparent;
-    border:none;
+    background:rgba(255,255,255,0.03);
+    border:1px solid var(--hairline);
+    border-radius:100px;
     outline:none;
     color:var(--text);
     font-family:'Public Sans', sans-serif;
     font-size:0.95rem;
-    padding:12px 18px;
+    padding:13px 20px;
   }
+  form.wl input:focus{ border-color:var(--accent-warm); }
   form.wl input::placeholder{ color:var(--muted-soft); }
   form.wl button{
     font-family:'Public Sans', sans-serif;
@@ -342,8 +345,9 @@
     color:#0B0E1C;
     border:none;
     border-radius:100px;
-    padding:12px 26px;
+    padding:13px 26px;
     cursor:pointer;
+    margin-top:4px;
     transition:transform .2s ease;
     white-space:nowrap;
   }
@@ -353,10 +357,6 @@
     font-size:0.85rem;
     color:var(--accent-teal);
     min-height:1.2em;
-  }
-  @media (max-width:520px){
-    form.wl{ flex-direction:column; border-radius:20px; }
-    form.wl button{ margin-top:6px; }
   }
 
   /* ---------- Footer ---------- */
@@ -493,14 +493,12 @@
 <span class="eyebrow" style="color:var(--accent-teal); display:block; margin-bottom:16px;">Be first in line</span>
 <h2>We're onboarding a limited number of creators first.</h2>
 <p>Join the waitlist and we'll reach out as soon as your spot opens up - no commitment, just an early seat.</p>
-<form class="wl" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" action="https://aventzo.us19.list-manage.com/subscribe/post?u=825d059df997a1be7cb19a832&amp;id=a0c2266eff&amp;f_id=00d435e7f0" method="post" target="mc-submit-frame" onsubmit="return handleWaitlist(event)">
-<input aria-label="Email address" placeholder="you@email.com" required="" type="email" name="EMAIL" id="mce-EMAIL"/>
-<div aria-hidden="true" style="position:absolute; left:-5000px;">
-<input type="text" name="b_825d059df997a1be7cb19a832_a0c2266eff" tabindex="-1" value="">
-</div>
+<form class="wl" id="kit-waitlist-form" name="kit-waitlist-form" action="https://app.kit.com/forms/REPLACE_WITH_YOUR_FORM_ID/subscriptions" method="post" target="kit-submit-frame" onsubmit="return handleWaitlist(event)">
+<input aria-label="Email address" placeholder="you@email.com" required="" type="email" name="email_address" id="email"/>
+<input aria-label="Your socials" placeholder="e.g. Instagram: @yourhandle, TikTok: @yourhandle, OnlyFans link" type="text" name="fields[socials]" id="socials"/>
 <button type="submit">Join waitlist</button>
 </form>
-<iframe name="mc-submit-frame" style="display:none;" title="hidden mailchimp submit frame"></iframe>
+<iframe name="kit-submit-frame" style="display:none;" title="hidden kit submit frame"></iframe>
 <div class="form-msg" id="wl-msg"></div>
 </div>
 </section>
@@ -513,7 +511,7 @@
 <script>
   function handleWaitlist(e){
     // Real submission happens in the background via the hidden iframe target,
-    // so we don't preventDefault here - the form actually posts to Mailchimp.
+    // so we don't preventDefault here - the form actually posts to Kit.
     document.getElementById('wl-msg').textContent = "You're on the list. We'll be in touch.";
     setTimeout(function(){ e.target.reset(); }, 50);
     return true;
