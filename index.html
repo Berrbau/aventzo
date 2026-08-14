@@ -366,7 +366,24 @@
     flex-wrap:wrap; gap:16px;
   }
   footer .wordmark{ font-size:1.05rem; }
+  footer .footer-right{
+    display:flex; flex-direction:column; align-items:flex-end; gap:10px;
+  }
   footer .tagline{ color:var(--muted-soft); font-size:0.85rem; }
+  footer .footer-links{
+    display:flex; gap:24px;
+  }
+  footer .footer-links a{
+    color:var(--muted);
+    font-size:0.85rem;
+    text-decoration:none;
+    transition:color .2s ease;
+  }
+  footer .footer-links a:hover{ color:var(--accent-warm); }
+  @media (max-width:600px){
+    footer .wrap{ flex-direction:column; text-align:center; }
+    footer .footer-right{ align-items:center; }
+  }
 </style>
 <meta content="Digital protection for creators, influencers and online businesses. Content protection, privacy and online security through trusted technology partners." name="description"/><meta content="Aventzo" property="og:title"/><meta content="Digital protection for creators and online businesses." property="og:description"/><meta content="https://aventzo.com/" property="og:url"/><meta content="website" property="og:type"/><meta content="https://aventzo.com/og-image.png" property="og:image"/><link href="https://aventzo.com/" rel="canonical"/><meta content="index, follow" name="robots"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Aventzo","url":"https://aventzo.com","email":"martin@aventzo.com","description":"Digital protection for creators and online businesses."}</script></head>
 <body>
@@ -422,8 +439,8 @@
 <div class="step">
 <div class="num">01</div>
 <div>
-<h4>Tell us your exposure</h4>
-<p>A short, private intake - no long forms, no jargon. Just what's worrying you right now.</p>
+<h4>Start with what's worrying you</h4>
+<p>You don't need to explain everything perfectly. Tell us what's happening and we'll take it from there.</p>
 </div>
 </div>
 <div class="step">
@@ -505,7 +522,13 @@
 <footer>
 <div class="wrap">
 <div class="wordmark">Aventzo</div>
+<div class="footer-right">
 <div class="tagline">Digital protection, quietly done. © 2026</div>
+<div class="footer-links">
+<a href="/privacy.html">Privacy Policy</a>
+<a href="/terms.html">Terms of Service</a>
+</div>
+</div>
 </div>
 </footer>
 <script>
