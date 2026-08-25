@@ -50,8 +50,25 @@
   strong{ color:var(--text); }
   a{ color:var(--accent-warm); }
   footer{ padding:48px 0; border-top:1px solid var(--hairline); }
-  footer .wrap{ text-align:center; }
+  footer .wrap{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    flex-wrap:wrap; gap:16px; text-align:left;
+  }
+  footer .wordmark{ font-family:'Fraunces', serif; font-weight:500; font-size:1.05rem; }
+  footer .footer-right{
+    display:flex; flex-direction:column; align-items:flex-end; gap:10px;
+  }
   footer .tagline{ color:var(--muted-soft); font-size:0.85rem; }
+  footer .footer-links{ display:flex; gap:24px; }
+  footer .footer-links a{
+    color:var(--muted); font-size:0.85rem; text-decoration:none;
+    transition:color .2s ease;
+  }
+  footer .footer-links a:hover{ color:var(--accent-warm); }
+  @media (max-width:600px){
+    footer .wrap{ flex-direction:column; text-align:center; align-items:center; }
+    footer .footer-right{ align-items:center; }
+  }
 </style>
 </head>
 <body>
@@ -131,7 +148,14 @@
 
 <footer>
   <div class="wrap">
-    <div class="tagline">Aventzo &middot; Digital protection, quietly done. &copy; 2026</div>
+    <div class="wordmark">Aventzo</div>
+    <div class="footer-right">
+      <div class="tagline">Digital protection, quietly done. &copy; 2026</div>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
   </div>
 </footer>
 
